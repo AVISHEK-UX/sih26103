@@ -1,0 +1,32 @@
+# Render blueprint for the PRAGUKTI backend (FastAPI + ML engines).
+#
+# The backend cannot run on Vercel: its dependency tree (xgboost, shap -> llvmlite/numba,
+# scipy, pandas, scikit-learn, pyproj) is ~540 MB installed, well past Vercel's 250 MB
+# serverless limit, and the app writes to disk (SQLite analyses, uploaded documents, the
+# GIS boundary and assessment stores) which a read-only serverless filesystem cannot do.
+# Render gives a real container with a writable, persistent disk instead.
+
+services:
+  - type: web
+    name: pragukti-api
+    runtime: python
+    plan: free
+    rootDir: backend
+    buildCommand: |
+      pip install --upgrade pip
+      pip install -r requirements.txt
+      python scripts/seed_gis_boundaries.py
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.13.0"
+      # Comma-separated frontend origins allowed by CORS. Set this to the Vercel URL
+      # once the frontend is deployed, e.g. https://pragukti.vercel.app
+      - key: ALLOWED_ORIGINS
+        sync: false
+      # Bearer token registry as inline JSON, produced by:
+      #   python scripts/generate_api_tokens.py
+      # Set it in the Render dashboard; never commit it.
+      - key: GIS_API_TOKENS
+        sync: false

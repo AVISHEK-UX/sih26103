@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from contextlib import asynccontextmanager
+import os
 import sqlite3
 from typing import AsyncIterator
 
@@ -105,9 +106,16 @@ async def lifespan(app: FastAPI) -> AsyncIterator[None]:
 
 
 app = FastAPI(title="PRAGUKTI Project Intelligence API", version="1.0.0", lifespan=lifespan)
+
+# The two local dev origins are always allowed. A deployment adds its own frontend origin
+# through ALLOWED_ORIGINS (comma-separated, e.g. "https://pragukti.vercel.app"); the list
+# stays explicit rather than becoming a wildcard, because allow_credentials is on.
+_DEV_ORIGINS = ["http://localhost:3000", "http://127.0.0.1:3000"]
+_extra_origins = [o.strip() for o in os.environ.get("ALLOWED_ORIGINS", "").split(",") if o.strip()]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "http://127.0.0.1:3000"],
+    allow_origins=_DEV_ORIGINS + _extra_origins,
     allow_credentials=True,
     allow_methods=["GET", "POST", "PATCH", "DELETE", "OPTIONS"],
     allow_headers=["*"],
