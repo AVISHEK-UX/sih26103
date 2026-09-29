@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1680 300" width="1680" height="300" role="img" aria-label="Four steps: a ranked list, the reasons behind it, past projects that looked the same, and what worked">
+  <title>PRAGUKTI — four-step chain</title>
+
+  <!-- ============ CONNECTORS ============ -->
+  <g stroke="#D2C7AC" stroke-width="5" stroke-linecap="round" stroke-dasharray="2 14">
+    <line x1="320"  y1="110" x2="520"  y2="110"/>
+    <line x1="745"  y1="110" x2="945"  y2="110"/>
+    <line x1="1160" y1="110" x2="1360" y2="110"/>
+  </g>
+
+  <!-- ============ 1. A RANKED LIST ============ -->
+  <g>
+    <rect x="135" y="38"  width="150" height="24" rx="12" fill="#A89878"/>
+    <rect x="135" y="78"  width="122" height="24" rx="12" fill="#C3B79A"/>
+    <rect x="135" y="118" width="94"  height="24" rx="12" fill="#C3B79A"/>
+    <rect x="135" y="158" width="66"  height="24" rx="12" fill="#C3B79A"/>
+  </g>
+
+  <!-- ============ 2. THE REASONS BEHIND IT ============ -->
+  <g>
+    <rect x="547" y="122" width="22" height="60"  rx="8" fill="#C3B79A"/>
+    <rect x="583" y="86"  width="22" height="96"  rx="8" fill="#C3B79A"/>
+    <rect x="619" y="52"  width="22" height="130" rx="8" fill="#A89878"/>
+    <rect x="655" y="98"  width="22" height="84"  rx="8" fill="#C3B79A"/>
+    <rect x="691" y="130" width="22" height="52"  rx="8" fill="#C3B79A"/>
+  </g>
+
+  <!-- ============ 3. PROJECTS THAT LOOKED THE SAME ============ -->
+  <g>
+    <rect x="1034" y="36" width="92" height="116" rx="11" fill="#D8CDB3"/>
+    <rect x="1004" y="52" width="92" height="116" rx="11" fill="#C9BD9E"/>
+    <rect x="974"  y="68" width="92" height="116" rx="11" fill="#A89878"/>
+    <g fill="#E9DFC4">
+      <rect x="994" y="96"  width="52" height="9" rx="4.5"/>
+      <rect x="994" y="118" width="40" height="9" rx="4.5"/>
+      <rect x="994" y="140" width="46" height="9" rx="4.5"/>
+    </g>
+  </g>
+
+  <!-- ============ 4. WHAT WORKED ============ -->
+  <g>
+    <circle cx="1470" cy="110" r="74" fill="#A89878"/>
+    <path d="M1436 112 L1460 138 L1508 82" fill="none" stroke="#E9DFC4" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- ============ LABELS (delete this group for the icon-only version) ============ -->
+  <g font-family="Inter, -apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="27" font-weight="500" fill="#6A6151" text-anchor="middle">
+    <text x="210"  y="255">A ranked list</text>
+    <text x="630"  y="255">The reasons behind it</text>
+    <text x="1050" y="255">Projects that looked the same</text>
+    <text x="1470" y="255">What worked</text>
+  </g>
+</svg>
