@@ -1,10 +1,10 @@
 # Render blueprint for the PRAGUKTI backend (FastAPI + ML engines).
 #
-# The backend cannot run on Vercel: its dependency tree (xgboost, shap -> llvmlite/numba,
-# scipy, pandas, scikit-learn, pyproj) is ~540 MB installed, well past Vercel's 250 MB
-# serverless limit, and the app writes to disk (SQLite analyses, uploaded documents, the
-# GIS boundary and assessment stores) which a read-only serverless filesystem cannot do.
-# Render gives a real container with a writable, persistent disk instead.
+# The backend is not deployable on Vercel: its dependency tree is roughly 540 MB
+# installed (xgboost, shap -> llvmlite/numba, scipy, pandas, scikit-learn, pyproj)
+# against a 250 MB serverless limit, and it writes to disk -- the SQLite analyses
+# store, uploaded documents, and the GIS boundary and assessment stores -- which a
+# read-only serverless filesystem cannot support. Render runs it as a real container.
 
 services:
   - type: web
@@ -12,21 +12,18 @@ services:
     runtime: python
     plan: free
     rootDir: backend
-    buildCommand: |
-      pip install --upgrade pip
-      pip install -r requirements.txt
-      python scripts/seed_gis_boundaries.py
+    buildCommand: pip install -r requirements.txt
     startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
     healthCheckPath: /health
     envVars:
       - key: PYTHON_VERSION
-        value: "3.13.0"
-      # Comma-separated frontend origins allowed by CORS. Set this to the Vercel URL
-      # once the frontend is deployed, e.g. https://pragukti.vercel.app
-      - key: ALLOWED_ORIGINS
-        sync: false
-      # Bearer token registry as inline JSON, produced by:
-      #   python scripts/generate_api_tokens.py
-      # Set it in the Render dashboard; never commit it.
+        value: "3.12.7"
+      # Bearer token registry as inline JSON. Generate with:
+      #   cd backend && python scripts/generate_api_tokens.py
+      # Set it in the Render dashboard; it must never be committed.
       - key: GIS_API_TOKENS
+        sync: false
+      # Comma-separated browser origins allowed by CORS. Set this to the Vercel
+      # production URL once the frontend is deployed.
+      - key: CORS_ORIGINS
         sync: false

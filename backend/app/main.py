@@ -107,15 +107,20 @@ async def lifespan(app: FastAPI) -> AsyncIterator[None]:
 
 app = FastAPI(title="PRAGUKTI Project Intelligence API", version="1.0.0", lifespan=lifespan)
 
-# The two local dev origins are always allowed. A deployment adds its own frontend origin
-# through ALLOWED_ORIGINS (comma-separated, e.g. "https://pragukti.vercel.app"); the list
-# stays explicit rather than becoming a wildcard, because allow_credentials is on.
-_DEV_ORIGINS = ["http://localhost:3000", "http://127.0.0.1:3000"]
-_extra_origins = [o.strip() for o in os.environ.get("ALLOWED_ORIGINS", "").split(",") if o.strip()]
+# Allowed browser origins, comma-separated, from CORS_ORIGINS. The default keeps local
+# development working with no configuration; a deployment sets this to its own frontend
+# origin (e.g. "https://pragukti.vercel.app"). The list stays explicit rather than
+# becoming a wildcard, because allow_credentials is on and the two cannot be combined.
+DEFAULT_CORS_ORIGINS = "http://localhost:3000,http://127.0.0.1:3000"
+CORS_ORIGINS = [
+    origin.strip()
+    for origin in os.environ.get("CORS_ORIGINS", DEFAULT_CORS_ORIGINS).split(",")
+    if origin.strip()
+]
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=_DEV_ORIGINS + _extra_origins,
+    allow_origins=CORS_ORIGINS,
     allow_credentials=True,
     allow_methods=["GET", "POST", "PATCH", "DELETE", "OPTIONS"],
     allow_headers=["*"],
