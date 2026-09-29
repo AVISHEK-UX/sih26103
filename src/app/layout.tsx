@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "PAIMANA | Project Intelligence",
-  description: "Predictive infrastructure intelligence for PAIMANA.",
+  title: "PRAGUKTI | Project Intelligence",
+  description: "Predictive infrastructure intelligence for PRAGUKTI.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

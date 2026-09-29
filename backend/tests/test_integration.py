@@ -1,4 +1,4 @@
-"""End-to-end integration tests for the PAIMANA Project Intelligence API.
+"""End-to-end integration tests for the PRAGUKTI Project Intelligence API.
 
 Covers:
   TC1 — High-risk railway project

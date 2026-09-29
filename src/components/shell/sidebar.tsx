@@ -32,7 +32,7 @@ export function Sidebar({ active, setActive, collapsed = false }: { active: stri
   const logout = () => { endDemoSession(); router.replace("/login"); };
   return (
     <aside className={`sidebar${collapsed ? " is-collapsed" : ""}`} aria-label="Primary">
-      <div className="brand"><span className="brand-mark"><Activity size={16} aria-hidden="true" /></span><span className="brand-word">PAIMANA<small>Intelligence</small></span></div>
+      <div className="brand"><span className="brand-mark"><Activity size={16} aria-hidden="true" /></span><span className="brand-word">PRAGUKTI<small>Intelligence</small></span></div>
       <nav>
         {SECTIONS.map((section) => (
           <div className="nav-section" key={section.label}>

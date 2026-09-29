@@ -1,0 +1,58 @@
+/* Landing page styles: scoped to this module, nothing shared. Dark surface by design;
+   the accent (#25D366) appears exactly twice: the hero button and the methodology rule. */
+
+.page { --bg: #0a0c0b; --text: #ffffff; --text-2: rgba(255, 255, 255, 0.72); --muted: rgba(255, 255, 255, 0.5); --surface: rgba(255, 255, 255, 0.04); --border: rgba(255, 255, 255, 0.1); --accent: #25d366; --accent-hover: #1fba5a; --accent-label: #0a0c0b; --gutter: 32px; background: var(--bg); color: var(--text); font-family: var(--font-geist-sans), system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+.page :focus-visible { outline: 2px solid #ffffff; outline-offset: 3px; }
+
+/* --- Screen 1: hero --- */
+.hero { position: relative; min-height: 100vh; min-height: 100svh; display: flex; flex-direction: column; background: var(--bg); overflow: hidden; isolation: isolate; }
+.heroImage { object-fit: cover; object-position: 62% 50%; z-index: -2; }
+.scrim { position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgba(10, 12, 11, 0.94) 0%, rgba(10, 12, 11, 0.6) 50%, rgba(10, 12, 11, 0.2) 100%); }
+.brand { display: flex; align-items: center; gap: 8px; padding: 28px var(--gutter) 0; font-size: 15px; font-weight: 700; letter-spacing: 0.12em; color: var(--text); }
+.brandMark { height: 28px; width: 28px; border: 1px solid rgba(255, 255, 255, 0.45); border-radius: 7px; display: grid; place-items: center; }
+.brand small { font-size: 8px; letter-spacing: 0.12em; color: rgba(255, 255, 255, 0.55); align-self: flex-end; margin: 0 0 2px -3px; }
+.heroBody { flex: 1; display: flex; align-items: center; padding: 40px var(--gutter) 72px; }
+.content { max-width: 560px; }
+.eyebrow { margin: 0; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255, 255, 255, 0.55); }
+.headline { margin: 16px 0 0; font-size: 68px; font-weight: 600; line-height: 1.05; letter-spacing: -0.035em; color: var(--text); }
+.subtitle { margin: 20px 0 0; max-width: 460px; font-size: 17px; line-height: 1.55; color: var(--text-2); }
+.figures { display: flex; flex-wrap: nowrap; gap: 40px; width: max-content; max-width: calc(100vw - 2 * var(--gutter)); margin: 40px 0 0; padding: 0; list-style: none; }
+.figures li { display: flex; flex-direction: column; gap: 6px; }
+.figureLabel { font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+.figureValue { font-size: 26px; font-weight: 600; line-height: 1; color: var(--text); font-variant-numeric: tabular-nums; }
+.figureValue small { font-size: 13px; font-weight: 500; color: var(--text-2); margin-left: 6px; }
+.button { display: inline-flex; align-items: center; gap: 8px; height: 48px; padding: 0 24px; margin-top: 40px; border-radius: 999px; background: var(--accent); color: var(--accent-label); font-size: 15px; font-weight: 500; text-decoration: none; transition: background-color 120ms ease; }
+.button:hover { background: var(--accent-hover); }
+.scrollCue { position: absolute; left: 50%; bottom: 24px; transform: translateX(-50%); display: grid; place-items: center; width: 36px; height: 36px; border: 0; border-radius: 50%; background: transparent; color: rgba(255, 255, 255, 0.35); cursor: pointer; animation: bounce 2.2s ease-in-out infinite; }
+.scrollCue:hover { color: rgba(255, 255, 255, 0.6); }
+@keyframes bounce { 0%, 100% { transform: translate(-50%, 0); } 50% { transform: translate(-50%, 6px); } }
+
+/* --- Screen 2: what it does --- */
+.section { padding: 96px var(--gutter); }
+.sectionTitle { margin: 12px 0 0; font-size: 34px; font-weight: 600; letter-spacing: -0.025em; color: var(--text); }
+.grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; margin: 40px 0 0; padding: 0; list-style: none; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 24px; opacity: 0; transform: translateY(14px); transition: opacity 500ms ease, transform 500ms ease; }
+.card.visible { opacity: 1; transform: none; }
+.chip { width: 36px; height: 36px; border-radius: 10px; background: rgba(255, 255, 255, 0.06); display: grid; place-items: center; color: rgba(255, 255, 255, 0.75); }
+.card h3 { margin: 16px 0 0; font-size: 17px; font-weight: 600; color: var(--text); }
+.card p { margin: 8px 0 0; font-size: 14px; line-height: 1.55; color: rgba(255, 255, 255, 0.6); }
+.method { margin: 48px 0 0; padding: 24px; border: 1px solid var(--border); border-left: 3px solid var(--accent); background: rgba(255, 255, 255, 0.03); }
+.method p { margin: 0; max-width: 780px; font-size: 15px; line-height: 1.6; color: rgba(255, 255, 255, 0.7); }
+.footer { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin: 40px 0 0; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.08); font-size: 13px; color: rgba(255, 255, 255, 0.45); }
+
+@media (max-width: 1280px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) {
+  .page { --gutter: 20px; }
+  .headline { font-size: 40px; }
+  .subtitle { font-size: 16px; }
+  .scrim { background: linear-gradient(180deg, rgba(10, 12, 11, 0.92) 0%, rgba(10, 12, 11, 0.78) 60%, rgba(10, 12, 11, 0.45) 100%); }
+  .figures { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 20px; width: auto; }
+  .figures li:last-child { grid-column: 1 / -1; }
+  .section { padding: 72px var(--gutter); }
+  .sectionTitle { font-size: 28px; }
+  .grid { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .scrollCue { animation: none; }
+  .card { opacity: 1; transform: none; transition: none; }
+}

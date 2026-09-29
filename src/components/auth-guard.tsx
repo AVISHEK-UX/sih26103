@@ -11,6 +11,11 @@ export default function AuthGuard({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     const authenticated = isDemoAuthenticated();
+    // The landing page is public: it sits before sign-in and never reads session state.
+    if (pathname === "/landing") {
+      const timer = window.setTimeout(() => setReady(true), 0);
+      return () => window.clearTimeout(timer);
+    }
     if (pathname === "/login") {
       if (authenticated) router.replace("/portfolio");
       else {

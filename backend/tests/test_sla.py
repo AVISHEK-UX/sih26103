@@ -30,7 +30,7 @@ def service(tmp_path: Path, deadline: str, *, enabled: bool = False, client: Fak
         "rules": {"amber_days_remaining": 30, "critical_risk_percentage": 80},
         "projects": {"PAI-00001": {"milestone": "Demo milestone", "deadline": deadline}},
     }), encoding="utf-8")
-    settings = NotificationSettings(enabled, "key", "template", "PAIMANA", "+919999999999")
+    settings = NotificationSettings(enabled, "key", "template", "PRAGUKTI", "+919999999999")
     notifications = NotificationService(settings=settings, client=client or FakeMsg91())
     predictor = SimpleNamespace(
         predict=lambda payload: SimpleNamespace(

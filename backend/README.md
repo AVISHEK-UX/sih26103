@@ -1,4 +1,4 @@
-# PAIMANA Project Intelligence API
+# PRAGUKTI Project Intelligence API
 
 A focused FastAPI backend for AI project delay-risk prediction and historical project similarity search.
 

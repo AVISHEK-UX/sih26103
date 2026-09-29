@@ -557,8 +557,8 @@ fieldset.field { border: 0; padding: 0; margin: 0; }
 .trajectory-lines svg { position: absolute; inset: 0 0 25px; width: 100%; height: calc(100% - 25px); overflow: visible; }
 .trajectory-label { position: absolute; color: var(--alert-critical); font-size: 8px; line-height: 1.4; }
 .trajectory-label b { font-size: 14px; }
-.current-label { left: 48%; top: 40%; }
-.forecast-label { right: 1%; top: 0; }
+.current-label { left: 48%; }
+.forecast-label { right: 1%; }
 .x-labels { display: flex; justify-content: space-between; color: var(--text-muted); font-size: 8px; padding-top: 9px; }
 .twin-table { border-top: 1px solid var(--border-hairline); margin: 27px 0 0 35px; }
 .twin-row { display: grid; grid-template-columns: 80px 1.5fr 1fr 1fr 20px; gap: 18px; align-items: center; min-height: 67px; border-bottom: 1px solid var(--border-hairline); }

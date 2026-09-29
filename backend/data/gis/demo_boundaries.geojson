@@ -1,7 +1,7 @@
 {
   "type": "FeatureCollection",
   "notice": "DEMO DATA - NOT OFFICIAL BOUNDARIES",
-  "description": "Fictional test boundaries for the PAIMANA GIS boundary data layer. Every geometry here is invented, sits in a made-up 'DEMO STATE', and corresponds to no real protected area. These must never be presented as official government boundaries, and must never be used for any real clearance, siting, or compliance decision.",
+  "description": "Fictional test boundaries for the PRAGUKTI GIS boundary data layer. Every geometry here is invented, sits in a made-up 'DEMO STATE', and corresponds to no real protected area. These must never be presented as official government boundaries, and must never be used for any real clearance, siting, or compliance decision.",
   "crs_note": "Coordinates are EPSG:4326 (WGS84 longitude/latitude), per RFC 7946.",
   "features": [
     {

@@ -94,7 +94,7 @@ CATEGORY_ALIASES: dict[str, str] = {
 # echoed at the top of any FeatureCollection containing at least one such record.
 # Nothing in this system may present generated geometry as an official boundary.
 DEMO_DATA_NOTICE = "DEMO DATA - NOT OFFICIAL BOUNDARIES"
-DEMO_SOURCE_NAME = "PAIMANA synthetic demo dataset"
+DEMO_SOURCE_NAME = "PRAGUKTI synthetic demo dataset"
 
 # --- Import ------------------------------------------------------------------------
 # Extensions the importer dispatches on. Shapefile and GeoPackage need the optional GIS

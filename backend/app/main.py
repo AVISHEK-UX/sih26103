@@ -104,7 +104,7 @@ async def lifespan(app: FastAPI) -> AsyncIterator[None]:
     yield
 
 
-app = FastAPI(title="PAIMANA Project Intelligence API", version="1.0.0", lifespan=lifespan)
+app = FastAPI(title="PRAGUKTI Project Intelligence API", version="1.0.0", lifespan=lifespan)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["http://localhost:3000", "http://127.0.0.1:3000"],

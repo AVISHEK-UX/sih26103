@@ -1,9 +1,9 @@
 export const DEMO_CREDENTIALS = {
-  email: "admin@paimana.gov.in",
-  password: "paimana2026",
+  email: "admin@pragukti.gov.in",
+  password: "pragukti2026",
 } as const;
 
-const SESSION_KEY = "paimana-demo-authenticated";
+const SESSION_KEY = "pragukti-demo-authenticated";
 
 export function isDemoAuthenticated(): boolean {
   return typeof window !== "undefined" && sessionStorage.getItem(SESSION_KEY) === "true";

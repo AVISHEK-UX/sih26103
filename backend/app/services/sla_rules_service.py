@@ -217,7 +217,7 @@ class SlaRulesService:
 
     def _alert_preview(self, project: ProjectRecord, worst: SlaRuleResult) -> SlaAlertPreview:
         message = (
-            f"PAIMANA SLA escalation -- {project.project_id} ({project.sector}, {project.state}): "
+            f"PRAGUKTI SLA escalation -- {project.project_id} ({project.sector}, {project.state}): "
             f"{worst.name} breached. Measured {worst.measured_value:g} {worst.unit} against a threshold of "
             f"{worst.threshold:g} {worst.unit}. Severity {worst.severity}. {worst.detail}."
         )

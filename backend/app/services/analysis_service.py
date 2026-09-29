@@ -1,7 +1,7 @@
 """Saved document analyses: SQLite (stdlib) store, separate from the project registry.
 
 These are records a person produced from an uploaded document and chose to keep. They
-are not PAIMANA project rows and never flow into projects.csv or the /projects endpoints.
+are not PRAGUKTI project rows and never flow into projects.csv or the /projects endpoints.
 The confirmed input and the pipeline result are stored as JSON documents; the handful of
 columns alongside them exist only so the list view needs no payload parsing.
 """

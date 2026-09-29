@@ -20,5 +20,5 @@ export function AppShell({ active, setActive, before, wide = false, children }: 
 
 /** The muted provenance line at the foot of every page. */
 export function PageFooter({ children }: { children: ReactNode }) {
-  return <footer className="page-foot"><span>{children}</span><span>PAIMANA Intelligence v2.4</span></footer>;
+  return <footer className="page-foot"><span>{children}</span><span>PRAGUKTI Intelligence v2.4</span></footer>;
 }
