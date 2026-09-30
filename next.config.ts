@@ -3,6 +3,14 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   async redirects() {
     return [
+      // The landing page is the entry point: it introduces the system and links on to the
+      // dashboard. The component at src/app/page.tsx stays where it is -- /analyses,
+      // /documents and /projects/[projectId] render it as the project intelligence report.
+      {
+        source: "/",
+        destination: "/landing",
+        permanent: false,
+      },
       {
         source: "/geospatial",
         destination: "/gis-check",
