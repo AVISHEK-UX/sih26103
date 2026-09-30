@@ -1,8 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { Activity, AlertTriangle, Archive, ClipboardList, FileSearch, Gauge, LayoutDashboard, ListChecks, LogOut, Map, Settings, ShieldCheck } from "lucide-react";
-import { endDemoSession } from "@/lib/demo-auth";
+import { Activity, AlertTriangle, Archive, ClipboardList, FileSearch, Gauge, LayoutDashboard, ListChecks, Map, Settings, ShieldCheck } from "lucide-react";
 
 /**
  * The application sidebar. Navigation targets are unchanged from the original build:
@@ -29,7 +28,6 @@ const SECTIONS: { label: string; items: { label: string; icon: typeof LayoutDash
 
 export function Sidebar({ active, setActive, collapsed = false }: { active: string; setActive: (value: string) => void; collapsed?: boolean }) {
   const router = useRouter();
-  const logout = () => { endDemoSession(); router.replace("/login"); };
   return (
     <aside className={`sidebar${collapsed ? " is-collapsed" : ""}`} aria-label="Primary">
       <div className="brand"><span className="brand-mark"><Activity size={16} aria-hidden="true" /></span><span className="brand-word">PRAGUKTI<small>Intelligence</small></span></div>
@@ -45,7 +43,8 @@ export function Sidebar({ active, setActive, collapsed = false }: { active: stri
       </nav>
       <div className="sidebar-foot">
         <button type="button" className={active === "Workspace settings" ? "nav-item is-active" : "nav-item"} title={collapsed ? "Workspace settings" : undefined} onClick={() => router.push("/settings")}><Settings size={16} aria-hidden="true" /><span>Workspace settings</span></button>
-        <button type="button" className="user-row" onClick={logout} aria-label="Sign out Ananya Sharma" title={collapsed ? "Sign out" : undefined}><span className="avatar">AS</span><span className="user-text"><strong>Ananya Sharma</strong><small>Sign out</small></span><LogOut size={14} aria-hidden="true" /></button>
+        {/* There is no sign-in, so this row identifies the workspace user rather than offering to sign out. */}
+        <div className="user-row" title={collapsed ? "Ananya Sharma" : undefined}><span className="avatar">AS</span><span className="user-text"><strong>Ananya Sharma</strong><small>Workspace user</small></span></div>
       </div>
     </aside>
   );
